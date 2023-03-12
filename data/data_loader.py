@@ -1,4 +1,5 @@
 from .base_dataset import BaseDataset
+from data.base_dataset import is_image_file
 import os
 
 def CreateDataLoader(opt):
@@ -25,6 +26,18 @@ class CustomDatasetDataLoader():
 
     def load_data(self):
         return self.dataloader
+
+def make_dataset(dir, max_dataset_size=float("inf")):
+    images = []
+    assert os.path.isdir(dir), '%s is not a valid directory' % dir
+
+    for root, _, fnames in sorted(os.walk(dir)):
+        for fname in sorted(fnames)[:max_dataset_size]:
+            if is_image_file(fname):
+                path = os.path.join(root, fname)
+                images.append(path)
+    return images
+
 
 def CreateDataset(opt):
     dataset = AlignedDataset()
