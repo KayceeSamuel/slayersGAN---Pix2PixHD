@@ -1,6 +1,7 @@
 
 def CreateDataLoader(opt):
     # from data.custom_dataset_data_loader import CustomDatasetDataLoader
+    from .base_dataset import BaseDataset
     data_loader = CustomDatasetDataLoader()
     print(data_loader.name())
     data_loader.initialize(opt)
