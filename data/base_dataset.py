@@ -3,6 +3,8 @@ from PIL import Image
 import torchvision.transforms as transforms
 import numpy as np
 import random
+import os
+from typing import List
 
 class BaseDataset(data.Dataset):
     def __init__(self):
@@ -88,3 +90,7 @@ def __flip(img, flip):
     if flip:
         return img.transpose(Image.FLIP_LEFT_RIGHT)
     return img
+
+def is_image_file(filename: str) -> bool:
+    return any(filename.endswith(extension) for extension in [".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff"])
+
