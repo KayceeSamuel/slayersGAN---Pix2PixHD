@@ -57,7 +57,7 @@ class AlignedDataset(BaseDataset):
         self.B_paths = []
         for AB_path in self.AB_paths:
             # split AB image into A and B
-            A_path, B_path = split_AB(AB_path, opt.input_nc, opt.output_nc)
+            A_path, B_path = split_AB(AB_path)
             self.A_paths.append(A_path)
             self.B_paths.append(B_path)
 
