@@ -32,7 +32,7 @@ def make_dataset(dir, max_dataset_size=float("inf")):
     assert os.path.isdir(dir), '%s is not a valid directory' % dir
 
     for root, _, fnames in sorted(os.walk(dir)):
-        for fname in sorted(fnames)[:max_dataset_size]:
+        for fname in sorted(fnames)[:int(max_dataset_size)]:
             if is_image_file(fname):
                 path = os.path.join(root, fname)
                 images.append(path)
