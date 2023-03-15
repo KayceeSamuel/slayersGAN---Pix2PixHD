@@ -32,7 +32,7 @@ if opt.debug:
     opt.print_freq = 1
     opt.niter = 1
     opt.niter_decay = 0
-    opt.max_dataset_size = 10000
+    opt.max_dataset_size = 10
 
 data_loader = CreateDataLoader(opt)
 dataset = data_loader.load_data()
